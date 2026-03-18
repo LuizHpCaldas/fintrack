@@ -1,36 +1,190 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# FinTrack
 
-## Getting Started
+A modern full-stack personal finance application built to help users track transactions, organize spending, and visualize financial activity through a clean dashboard experience.
 
-First, run the development server:
+FinTrack was developed as a portfolio project focused on full-stack product engineering, covering authenticated user flows, database modeling, server-side actions, subscription-ready architecture, and data visualization.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Overview
+
+FinTrack is designed to centralize personal financial management in a simple and scalable web application. Users can register and manage transactions, categorize financial activity, and gain visibility into their spending behavior through charts and summary views.
+
+This project was built with a strong emphasis on:
+- full-stack architecture
+- type safety
+- user authentication
+- validated forms
+- database-driven workflows
+- scalable product foundations
+
+## Features
+
+- User authentication and session management
+- Transaction creation and update flows
+- Financial records with:
+  - type (deposit, expense, investment)
+  - category
+  - payment method
+  - amount
+  - date
+- Dashboard-oriented financial visualization
+- Subscription-ready structure with Stripe integration
+- Form validation with Zod and React Hook Form
+- Database access through Prisma ORM
+- Responsive frontend built with Next.js App Router
+
+## Tech Stack
+
+**Frontend**
+- Next.js 14
+- React
+- TypeScript
+- Tailwind CSS
+- Recharts
+
+**Backend / Infrastructure**
+- Next.js App Router
+- Prisma ORM
+- PostgreSQL
+- Clerk Authentication
+- Stripe
+- Zod
+- React Hook Form
+
+## Architecture Highlights
+
+FinTrack follows a full-stack web architecture using the Next.js App Router, with database access handled through Prisma and user authentication managed by Clerk.
+
+The project structure also includes:
+- transaction-related server actions
+- subscription-related routes
+- Stripe webhook handling
+- modular internal folders for components, constants, data access, utilities, and shared logic
+
+This makes the project a strong example of a modern TypeScript-based SaaS-style application.
+
+## Data Model
+
+The current database model includes a `Transaction` entity with the following core fields:
+- `name`
+- `type`
+- `amount`
+- `category`
+- `paymentMethod`
+- `date`
+- `userId`
+
+Supported transaction types:
+- Deposit
+- Expense
+- Investment
+
+Supported payment methods include:
+- Credit card
+- Debit card
+- Bank transfer
+- Bank slip
+- Cash
+- Pix
+- Other
+
+## Screenshots
+
+Add screenshots here to make the project more convincing for recruiters.
+
+Suggested sections:
+- Dashboard
+- Transactions page
+- Create transaction form
+- Subscription page
+
+Example:
+
+```md
+![Dashboard](./public/screenshots/dashboard.png)
+![Transactions](./public/screenshots/transactions.png)
+```
+Getting Started
+1. Clone the repository
+```
+git clone https://github.com/LuizHpCaldas/fintrack.git
+cd fintrack
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. Configure environment variables
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Create a .env.local file in the root of the project and add your environment variables.
+Example structure:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+DATABASE_URL=
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
+CLERK_SECRET_KEY=
+STRIPE_SECRET_KEY=
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=
+STRIPE_WEBHOOK_SECRET=
+OPENAI_API_KEY=
+```
 
-## Learn More
+Keep secrets out of the repository and use local environment files instead.
 
-To learn more about Next.js, take a look at the following resources:
+4. Run Prisma
+```
+npx prisma generate
+npx prisma migrate dev
+6. Start the development server
+npm run dev
+```
+Open http://localhost:3000 in your browser.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Why this project matters
+FinTrack is more than a CRUD application. It was built to demonstrate practical 
+full-stack engineering skills that are valuable in internship and junior software roles, 
+including:
 
-## Deploy on Vercel
+designing and validating user-facing forms
+modeling relational data
+building authenticated application flows
+integrating external services
+structuring a product-oriented web application
+working with dashboards and financial data
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+hat I learned
+Through this project, I strengthened my experience with:
+Next.js App Router patterns
+Prisma and PostgreSQL data modeling
+authentication workflows with Clerk
+payment-oriented architecture with Stripe
+building typed and validated forms
+creating maintainable full-stack project structures
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Roadmap
+
+Possible next improvements:
+
+recurring transactions
+budget planning by category
+monthly reports
+export to CSV/PDF
+financial goals
+improved analytics dashboards
+test coverage
+deployment and production monitoring
+
+Repository Notes
+
+This project is actively being refined as part of my software engineering portfolio.
+
+
+Author
+
+Luiz Henrique Pereira Caldas
+Computer Science student focused on backend development,
+APIs, automation, and full-stack applications.
+
+GitHub: @LuizHpCaldas
+
+LinkedIn: https://linkedin.com/in/luizhpcaldas
+
+License
+This project is available for study and portfolio purposes.
