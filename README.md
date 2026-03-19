@@ -51,6 +51,29 @@ This project was built to demonstrate practical full-stack engineering skills, i
 - AI financial reports
 - Premium-only access to AI insights
 
+## Product Screens
+
+### Landing Page
+The application starts with a branded landing page introducing the platform and guiding the user to sign in or create an account.
+
+```md
+![Landing Page](./public/screenshots/landing-page.png)
+```
+
+### Authentication
+Authentication is handled through Clerk, with social login support and secure account access flows.
+
+```md
+![Authentication](./public/auth.png)
+```
+
+### Dashboard
+Users can view their current balance, income, expenses, investments, and recent transactions in a centralized dashboard.
+
+```md
+![Dashboard](./public/dashboard.png)
+```
+
 ### Create Transaction
 Transactions can be added through a modal form with fields for:
 - name
@@ -61,14 +84,14 @@ Transactions can be added through a modal form with fields for:
 - date
 
 ```md
-![Create Transaction](./public/screenshots/create-transaction.png)
+![Create Transaction](./public/create-transaction.png)
 ```
 
 ### Subscription Plans
 The platform includes a pricing page with feature comparison between free and premium tiers.
 
 ```md
-![Subscription](./public/screenshots/subscription.png)
+![Subscription](./public/subscription.png)
 ```
 
 ## Tech Stack
