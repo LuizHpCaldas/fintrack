@@ -1,47 +1,87 @@
 # FinTrack
 
-A modern full-stack personal finance application built to help users track transactions, organize spending, and visualize financial activity through a clean dashboard experience.
+FinTrack is a full-stack personal finance platform built to help users manage transactions, monitor financial activity, and unlock AI-powered insights through a subscription-based experience.
 
-FinTrack was developed as a portfolio project focused on full-stack product engineering, covering authenticated user flows, database modeling, server-side actions, subscription-ready architecture, and data visualization.
+The project was designed as a modern SaaS-style application, combining authentication, database-driven workflows, dashboards, subscription logic, and premium feature gating in a clean and responsive interface.
+
+## Highlights
+
+- Full-stack SaaS architecture
+- Authentication with Clerk
+- Subscription flow with Stripe
+- Premium AI reports
+- Dashboard and transaction management
+- Built with Next.js, TypeScript and Prisma
 
 ## Overview
 
-FinTrack is designed to centralize personal financial management in a simple and scalable web application. Users can register and manage transactions, categorize financial activity, and gain visibility into their spending behavior through charts and summary views.
+FinTrack allows users to register financial transactions, categorize expenses, track balances, and visualize their financial data through a dashboard experience.
 
-This project was built with a strong emphasis on:
-- full-stack architecture
-- type safety
-- user authentication
-- validated forms
-- database-driven workflows
-- scalable product foundations
+The platform also includes a premium subscription layer, where users can unlock advanced features such as unlimited transactions and AI-generated financial reports.
+
+This project was built to demonstrate practical full-stack engineering skills, including:
+- authenticated user flows
+- database modeling
+- form handling and validation
+- subscription-ready architecture
+- premium feature access control
+- dashboard and analytics UI
+- external service integration
 
 ## Features
 
-- User authentication and session management
-- Transaction creation and update flows
-- Financial records with:
-  - type (deposit, expense, investment)
-  - category
-  - payment method
-  - amount
-  - date
-- Dashboard-oriented financial visualization
-- Subscription-ready structure with Stripe integration
-- Form validation with Zod and React Hook Form
-- Database access through Prisma ORM
-- Responsive frontend built with Next.js App Router
+### Core Features
+- User authentication with Clerk
+- Landing page with product presentation
+- Dashboard with financial summary cards
+- Transaction management
+- Categorization by type, category, and payment method
+- Recent transactions view
+- Category-based expense visualization
+- Responsive dark-themed UI
+
+### Subscription Features
+- Free plan with monthly transaction limit
+- Premium plan with unlimited transactions
+- Premium feature gating
+- Subscription page with pricing comparison
+- Stripe-ready billing architecture
+
+### AI Features
+- AI financial reports
+- Premium-only access to AI insights
+
+### Create Transaction
+Transactions can be added through a modal form with fields for:
+- name
+- amount
+- type
+- category
+- payment method
+- date
+
+```md
+![Create Transaction](./public/screenshots/create-transaction.png)
+```
+
+### Subscription Plans
+The platform includes a pricing page with feature comparison between free and premium tiers.
+
+```md
+![Subscription](./public/screenshots/subscription.png)
+```
 
 ## Tech Stack
 
-**Frontend**
+### Frontend
 - Next.js 14
 - React
 - TypeScript
 - Tailwind CSS
+- Shadcn/UI
 - Recharts
 
-**Backend / Infrastructure**
+### Backend / Infrastructure
 - Next.js App Router
 - Prisma ORM
 - PostgreSQL
@@ -52,70 +92,84 @@ This project was built with a strong emphasis on:
 
 ## Architecture Highlights
 
-FinTrack follows a full-stack web architecture using the Next.js App Router, with database access handled through Prisma and user authentication managed by Clerk.
+FinTrack follows a modern full-stack architecture using the Next.js App Router.
 
-The project structure also includes:
-- transaction-related server actions
-- subscription-related routes
-- Stripe webhook handling
-- modular internal folders for components, constants, data access, utilities, and shared logic
+Key architectural aspects include:
+- server-side rendering and routing with Next.js
+- relational data modeling with Prisma
+- authenticated user flows with Clerk
+- subscription-ready integration with Stripe
+- premium feature gating logic
+- modular UI components and reusable form structures
 
-This makes the project a strong example of a modern TypeScript-based SaaS-style application.
+The project is structured to reflect a real product-oriented application rather than a simple CRUD demo.
 
-## Data Model
+## Business Logic
 
-The current database model includes a `Transaction` entity with the following core fields:
-- `name`
-- `type`
-- `amount`
-- `category`
-- `paymentMethod`
-- `date`
-- `userId`
-
-Supported transaction types:
+FinTrack supports different transaction types, including:
 - Deposit
 - Expense
 - Investment
 
-Supported payment methods include:
-- Credit card
-- Debit card
-- Bank transfer
-- Bank slip
-- Cash
-- Pix
-- Other
+Each transaction can also store:
+- category
+- payment method
+- amount
+- date
+- user ownership
 
-## Screenshots
+The subscription model introduces feature restrictions:
+- **Basic Plan**: limited number of transactions per month
+- **Premium Plan**: unlimited transactions and AI reports
 
-Add screenshots here to make the project more convincing for recruiters.
+This helps simulate real SaaS monetization and access control logic.
 
-Suggested sections:
-- Dashboard
-- Transactions page
-- Create transaction form
-- Subscription page
+## Why this project matters
 
-Example:
+FinTrack was built to go beyond a traditional finance tracker.
 
-```md
-![Dashboard](./public/screenshots/dashboard.png)
-![Transactions](./public/screenshots/transactions.png)
-```
-Getting Started
-1. Clone the repository
-```
+It demonstrates how to design a SaaS-style product with:
+- authentication
+- paid feature tiers
+- premium access control
+- modern form validation
+- financial dashboards
+- scalable full-stack architecture
+
+This makes it a strong portfolio project for software engineering internship and junior full-stack roles.
+
+## What I learned
+
+Through this project, I strengthened my experience with:
+- Next.js App Router
+- TypeScript in full-stack applications
+- Prisma and relational data modeling
+- Clerk authentication workflows
+- Stripe-based subscription architecture
+- building reusable and validated forms
+- product-oriented UI development
+- feature gating for premium plans
+
+## Getting Started
+
+### 1. Clone the repository
+
+```bash
 git clone https://github.com/LuizHpCaldas/fintrack.git
 cd fintrack
 ```
 
-3. Configure environment variables
+### 2. Install dependencies
 
-Create a .env.local file in the root of the project and add your environment variables.
-Example structure:
-
+```bash
+npm install
 ```
+
+### 3. Configure environment variables
+
+Create a `.env.local` file in the project root:
+
+```env
 DATABASE_URL=
 NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
 CLERK_SECRET_KEY=
@@ -125,66 +179,41 @@ STRIPE_WEBHOOK_SECRET=
 OPENAI_API_KEY=
 ```
 
-Keep secrets out of the repository and use local environment files instead.
+### 4. Run Prisma
 
-4. Run Prisma
-```
+```bash
 npx prisma generate
 npx prisma migrate dev
-6. Start the development server
+```
+
+### 5. Start the development server
+
+```bash
 npm run dev
 ```
-Open http://localhost:3000 in your browser.
 
+Then open `http://localhost:3000`.
 
-Why this project matters
-FinTrack is more than a CRUD application. It was built to demonstrate practical 
-full-stack engineering skills that are valuable in internship and junior software roles, 
-including:
+## Future Improvements
 
-designing and validating user-facing forms
-modeling relational data
-building authenticated application flows
-integrating external services
-structuring a product-oriented web application
-working with dashboards and financial data
+Planned improvements include:
+- recurring transactions
+- monthly budgeting
+- richer AI reports
+- export to CSV/PDF
+- financial goals tracking
+- improved analytics charts
+- automated test coverage
+- production monitoring
 
-hat I learned
-Through this project, I strengthened my experience with:
-Next.js App Router patterns
-Prisma and PostgreSQL data modeling
-authentication workflows with Clerk
-payment-oriented architecture with Stripe
-building typed and validated forms
-creating maintainable full-stack project structures
+## Author
 
-Roadmap
+**Luiz Henrique Pereira Caldas**  
+Computer Science student focused on backend development, APIs, automation, and full-stack applications.
 
-Possible next improvements:
+- GitHub: [@LuizHpCaldas](https://github.com/LuizHpCaldas)
+- LinkedIn: [add your LinkedIn here]
 
-recurring transactions
-budget planning by category
-monthly reports
-export to CSV/PDF
-financial goals
-improved analytics dashboards
-test coverage
-deployment and production monitoring
+## License
 
-Repository Notes
-
-This project is actively being refined as part of my software engineering portfolio.
-
-
-Author
-
-Luiz Henrique Pereira Caldas
-Computer Science student focused on backend development,
-APIs, automation, and full-stack applications.
-
-GitHub: @LuizHpCaldas
-
-LinkedIn: https://linkedin.com/in/luizhpcaldas
-
-License
 This project is available for study and portfolio purposes.
